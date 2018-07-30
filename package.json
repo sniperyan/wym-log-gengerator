@@ -1,0 +1,24 @@
+{
+  "name": "wym-log-gengerator",
+  "version": "1.0.0",
+  "description": "wym log generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sniperyan/wym-log-gengerator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^3.1.0",
+    "lodash.assign": "^4.2.0",
+    "moment": "^2.22.2"
+  },
+  "bugs": {
+    "url": "https://github.com/sniperyan/wym-log-gengerator/issues"
+  },
+  "homepage": "https://github.com/sniperyan/wym-log-gengerator#readme"
+}
