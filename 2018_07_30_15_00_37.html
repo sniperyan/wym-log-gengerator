@@ -1,7 +1,4 @@
-var moment = require('moment');
-var fs = require('fs');
-function getHeader(){
-    headerHtml = `<!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -84,43 +81,6 @@ function getHeader(){
         <h1>微医美SAAS2.0</h1>
         <hr />
         <h3>> 更新日志</h3>
-        <table border="0">`
-    return headerHtml
-}
-
-function getFooter(){
-    footHtml = `</table>
+        <table border="0"><tr class="a0"><td>CommitID</td><td>修改说明</td><td>修改人</td><td>日期</td></tr><tr class="a1"><td>eb8430ca947167d9e76f4810671d55ff204a1cae</td><td>add</td><td>liyan</td><td>2018-07-30 14:25:41 +0800</td></tr><tr class="a2"><td>363294d9b75af0f35a54d6dff21f1f2e73030e0b</td><td>Initial commit</td><td>Yan Li</td><td>2018-07-30 11:46:37 +0800</td></tr></table>
     </body>
-    </html>`
-    return footHtml
-}
-
-var log = require('./log');
-var options = {
-    repo: __dirname,
-    number: 2000,
-    branch:'master',
-    all:true,
-    fields:[
-        'hash',
-        'subject',
-        'authorName',
-        'authorDate'
-    ]
-}
-log(options, function(error, commits) {
-    var filename = moment().format('YYYY_MM_DD_HH_mm_ss');
-    var rows = '';
-    var row0 = `<tr class="a0"><td>CommitID</td><td>修改说明</td><td>修改人</td><td>日期</td></tr>`;
-    commits.forEach((item,index)=>{
-        rows = rows + `<tr class="a${(index % 6)+1}"><td>${item.hash}</td><td>${item.subject}</td><td>${item.authorName}</td><td>${item.authorDate}</td></tr>`;
-    })
-    var html = getHeader() + row0 + rows + getFooter();
-    fs.open(`${filename}.html`,"w",function(e,fd){
-        if(e) throw e;
-        fs.write(fd,html,0,'utf8',function(e){
-            if(e) throw e;
-            fs.closeSync(fd);
-        })
-    });
-})
+    </html>
